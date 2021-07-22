@@ -1,6 +1,6 @@
 <?php
 include "header.php";
-
+session_start();
 if (isset($_POST["register"])) {
     require "userHandle.php";
     require "User.php";
@@ -24,11 +24,12 @@ if (isset($_POST["register"])) {
 ?>
         <script>
             alert("Registration Sucess");
-            window.location.href("login.php");
-        </script><?php
-                }
-            }
-                    ?>
+            window.location.href = "login.php";
+        </script>
+<?php
+    }
+}
+?>
 <!-- Hero Area Start-->
 <div class="slider-area ">
     <div class="single-slider slider-height2 d-flex align-items-center">
@@ -53,7 +54,7 @@ if (isset($_POST["register"])) {
                     <div class="login_part_text_iner">
                         <h2>Already have an account?</h2>
                         <p>CHorrr Error AYOOOOO!!!</p>
-                        <a href="#" class="btn_3">Login</a>
+                        <a href="login.php" class="btn_3">Login</a>
                     </div>
                 </div>
             </div>

@@ -33,4 +33,19 @@ class UserHandle extends Connection
             return json_encode(array("status" => "Database Connection Failed"));
         }
     }
+
+    function loginUser($user, $pass)
+    {
+        $sql = "SELECT * FROM `registration` WHERE userName = '$user' AND password = '$pass'";
+        if ($this->checkConnection()) {
+            $result = mysqli_query($this->getConnection(), $sql);
+            if ($result->num_rows > 0) {
+                return json_encode(array("status" => "Login Sucess"));
+            } else {
+                return json_encode(array("status" => "Incorrect Credentials"));
+            }
+        } else {
+            return json_encode(array("status" => "Database Connection Failed"));
+        }
+    }
 }
